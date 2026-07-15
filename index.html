@@ -576,110 +576,61 @@
   .card h3 { margin-bottom: var(--space-12); }
 
   /* ============ 9. PORTFOLIO ============ */
-  .portfolio-grid {
+  .portfolio-cards-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-48);
-    align-items: center;
-    margin-top: var(--space-32);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-24);
+    margin-top: var(--space-48);
   }
   @media (max-width: 1080px) {
-    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .portfolio-cards-grid { grid-template-columns: 1fr; }
   }
 
-  .tag-list {
+  .portfolio-card {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent);
+    padding: var(--space-24);
+    display: flex;
+    flex-direction: column;
+    transition: transform .22s ease, box-shadow .22s ease;
+  }
+  .portfolio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px -18px rgba(0,0,0,.3);
+  }
+
+  .portfolio-card-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-12);
-    margin-top: var(--space-24);
+    align-items: center;
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
   }
-  .tag-list li {
+  .portfolio-category {
     font-family: var(--font-mono);
     font-size: var(--fs-caption);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--accent-strong);
     border: 1px solid var(--border);
-    padding: var(--space-8) var(--space-12);
+    padding: var(--space-4) var(--space-8);
   }
-
-  .portfolio-text .btn { margin-top: var(--space-32); }
-
-  .browser-frame {
-    background: var(--bg-raised);
-    border: 1px solid var(--border);
-    box-shadow: 0 24px 50px -24px rgba(0,0,0,.35);
-    overflow: hidden;
-  }
-  .browser-bar {
-    display: flex;
+  .portfolio-admin-badge {
+    font-family: var(--font-mono);
+    font-size: var(--fs-caption);
+    color: var(--text-muted);
+    display: inline-flex;
     align-items: center;
-    gap: var(--space-8);
-    padding: var(--space-12) var(--space-16);
-    background: var(--border);
-  }
-  .browser-bar .dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--text-muted);
-    opacity: .5;
-  }
-  .browser-bar .url-bar {
-    margin-left: var(--space-12);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.03em;
-    color: var(--text-muted);
-    background: var(--bg-raised);
-    border: 1px solid var(--border);
-    padding: 4px 10px;
-    flex: 1;
+    gap: 4px;
   }
 
-  .browser-body {
-    aspect-ratio: 4 / 3;
-    background: #0B0B0C;
-    position: relative;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
-  .kevra-block { position: relative; }
-  .kevra-block--1 { background: #0B0B0C; grid-row: 1 / 3; border-right: 1px solid #B8813A; display: flex; align-items: center; justify-content: center; }
-  .kevra-block--2 { background: #F4F1EA; }
-  .kevra-block--3 { background: #0B0B0C; border-top: 1px solid #B8813A; position: relative; }
-  .kevra-block--3::before {
-    content: "";
-    position: absolute;
-    left: 16%; right: 16%; top: 30%;
-    height: 1px;
-    background: #B8813A;
-    opacity: .6;
-  }
-  .kevra-word {
-    font-family: var(--font-display);
-    color: #D9A75C;
-    letter-spacing: 0.28em;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-  }
-  .kevra-block--2::after {
-    content: "";
-    position: absolute;
-    left: 14%; right: 46%; bottom: 20%; top: 20%;
-    border: 1px solid #0B0B0C;
-    opacity: .25;
-  }
-
-  .mockup-caption {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    text-align: center;
-    margin-top: var(--space-12);
-    letter-spacing: 0.02em;
-  }
+  .portfolio-card h3 { margin-bottom: var(--space-8); }
+  .portfolio-card p { font-size: 0.92rem; flex-grow: 1; }
+  .portfolio-card .btn { margin-top: var(--space-24); align-self: flex-start; }
 
   /* ============ 10. TESTIMONIAL ============ */
   .testimonial .container {
@@ -1031,33 +982,74 @@
   <!-- ============ PORTFOLYO ============ -->
   <section class="section portfolio" id="portfolyo" style="background: var(--bg-raised); border-block: 1px solid var(--border);">
     <div class="container">
-      <div class="portfolio-grid">
-        <div class="portfolio-text" data-reveal>
-          <p class="eyebrow">PORTFOLYO</p>
-          <h2>Vitrinden bir örnek: KEVRA</h2>
-          <p>KEVRA, premium kadın giyim sunan bir e-ticaret markası. Siyah, beyaz ve altın tonlarını kullanan minimal ve zarif bir arayüzle; ürün kategorileri, güvenli ödeme, kolay iade ve WhatsApp destek hattını tek bir çatı altında topladım. Amaç, markanın ‘zamansız şıklık’ vaadini ekranda da hissettirmekti.</p>
-          <ul class="tag-list">
-            <li>E-Ticaret</li>
-            <li>Moda &amp; Giyim</li>
-            <li>Mobil Uyumlu</li>
-          </ul>
-          <a class="btn btn-primary" href="https://kevra.com.tr" target="_blank" rel="noopener noreferrer">Siteyi Ziyaret Et</a>
-        </div>
+      <div data-reveal>
+        <p class="eyebrow">PORTFOLYO</p>
+        <h2>Sattığımız şey sadece tasarım değil.</h2>
+        <p class="section-intro">Her projeyle birlikte size özel bir <strong>yönetim paneli</strong> de teslim ediyoruz — ürün, sipariş, randevu ya da içerik ne olursa olsun, siteyi talebinize göre kendiniz güncelleyebilir ya da bakımını bize bırakabilirsiniz. Aşağıdaki 6 proje, farklı sektörlerde uçtan uca kurduğumuz gerçek işler; hepsi tıklanabilir canlı demo.</p>
+      </div>
 
-        <div data-reveal>
-          <div class="browser-frame">
-            <div class="browser-bar" aria-hidden="true">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <span class="url-bar">kevra.com.tr</span>
-            </div>
-            <div class="browser-body" aria-hidden="true">
-              <div class="kevra-block kevra-block--1"><span class="kevra-word">KEVRA</span></div>
-              <div class="kevra-block kevra-block--2"></div>
-              <div class="kevra-block kevra-block--3"></div>
-            </div>
+      <div class="portfolio-cards-grid">
+
+        <article class="portfolio-card" data-reveal>
+          <div class="portfolio-card-meta">
+            <span class="portfolio-category">E-Ticaret · Moda</span>
+            <span class="portfolio-admin-badge">⚙ Yönetim Paneli Dahil</span>
           </div>
-          <p class="mockup-caption">Gerçek ekran görüntüsü değildir — KEVRA'nın görsel diline atıfla oluşturulmuş stilize bir temsildir.</p>
-        </div>
+          <h3>Kevra</h3>
+          <p>Premium kadın giyim markası için minimal, zarif bir e-ticaret deneyimi. Ürün, sipariş ve stok yönetimi kendi panelinizden yapılır.</p>
+          <a class="btn btn-primary btn-small" href="https://kevra.com.tr" target="_blank" rel="noopener noreferrer">Canlı Demoyu Gör</a>
+        </article>
+
+        <article class="portfolio-card" data-reveal>
+          <div class="portfolio-card-meta">
+            <span class="portfolio-category">Hizmet · Güzellik</span>
+            <span class="portfolio-admin-badge">⚙ Yönetim Paneli Dahil</span>
+          </div>
+          <h3>Nuray Yıldız Güzellik</h3>
+          <p>Çoklu şube yapısına sahip bir güzellik salonu için randevu odaklı tanıtım sitesi. Hizmet ve ürün kataloğu panelden güncellenir.</p>
+          <a class="btn btn-primary btn-small" href="https://burak-kemer.github.io/nuray-yildiz-guzellik-demo/" target="_blank" rel="noopener noreferrer">Canlı Demoyu Gör</a>
+        </article>
+
+        <article class="portfolio-card" data-reveal>
+          <div class="portfolio-card-meta">
+            <span class="portfolio-category">E-Ticaret · Mücevher</span>
+            <span class="portfolio-admin-badge">⚙ Yönetim Paneli Dahil</span>
+          </div>
+          <h3>Pırlanta Atolyesi Jasmine</h3>
+          <p>HRD/GIA sertifikalı, kişiye özel tasarım pırlanta atölyesi için lüks ve etkileşimli bir vitrin. Koleksiyon bilgileri panelden yönetilir.</p>
+          <a class="btn btn-primary btn-small" href="https://burak-kemer.github.io/pirlanta-atolyesi-jasmine-demo/" target="_blank" rel="noopener noreferrer">Canlı Demoyu Gör</a>
+        </article>
+
+        <article class="portfolio-card" data-reveal>
+          <div class="portfolio-card-meta">
+            <span class="portfolio-category">E-Ticaret · Gıda</span>
+            <span class="portfolio-admin-badge">⚙ Yönetim Paneli Dahil</span>
+          </div>
+          <h3>Zeytinliman</h3>
+          <p>Soğuk sıkım zeytinyağı toptan/perakende satışı için sipariş ve stok takibi entegre bir e-ticaret sitesi.</p>
+          <a class="btn btn-primary btn-small" href="https://burak-kemer.github.io/zeytinliman-demo/" target="_blank" rel="noopener noreferrer">Canlı Demoyu Gör</a>
+        </article>
+
+        <article class="portfolio-card" data-reveal>
+          <div class="portfolio-card-meta">
+            <span class="portfolio-category">E-Ticaret · Moda</span>
+            <span class="portfolio-admin-badge">⚙ Yönetim Paneli Dahil</span>
+          </div>
+          <h3>TGC Store</h3>
+          <p>Node.js altyapılı, tam donanımlı bir moda e-ticaret sitesi. Ürün, kategori ve sipariş yönetimi panelden yapılır.</p>
+          <a class="btn btn-primary btn-small" href="https://burak-kemer.github.io/tgc-store-demo/" target="_blank" rel="noopener noreferrer">Canlı Demoyu Gör</a>
+        </article>
+
+        <article class="portfolio-card" data-reveal>
+          <div class="portfolio-card-meta">
+            <span class="portfolio-category">Rezervasyon · Organizasyon</span>
+            <span class="portfolio-admin-badge">⚙ Yönetim Paneli Dahil</span>
+          </div>
+          <h3>BT Wedding &amp; Event</h3>
+          <p>Düğün, nişan ve kına organizasyonları için galeri ve rezervasyon yönetim sistemi. Next.js tabanlı, admin panelinden rezervasyon takibi yapılır.</p>
+          <a class="btn btn-primary btn-small" href="https://github.com/Burak-Kemer/bt-wedding-event-demo" target="_blank" rel="noopener noreferrer">Kodu İncele</a>
+        </article>
+
       </div>
     </div>
   </section>
