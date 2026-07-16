@@ -597,10 +597,30 @@
     display: flex;
     flex-direction: column;
     transition: transform .22s ease, box-shadow .22s ease;
+    overflow: hidden;
   }
   .portfolio-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 16px 32px -18px rgba(0,0,0,.3);
+  }
+
+  .portfolio-card-img {
+    aspect-ratio: 8 / 5;
+    margin: calc(-1 * var(--space-24)) calc(-1 * var(--space-24)) var(--space-24);
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .portfolio-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform .35s ease;
+  }
+  .portfolio-card:hover .portfolio-card-img img {
+    transform: scale(1.045);
   }
 
   .portfolio-card-meta {
@@ -1001,6 +1021,9 @@
         </article>
 
         <article class="portfolio-card" data-reveal>
+          <div class="portfolio-card-img">
+            <img src="images/portfolio/nuray-yildiz.jpg" alt="Nuray Yıldız Güzellik sitesi anasayfa görünümü" loading="lazy" width="800" height="500">
+          </div>
           <div class="portfolio-card-meta">
             <span class="portfolio-category">Hizmet · Güzellik</span>
             <span class="portfolio-admin-badge">⚙ Yönetim Paneli Dahil</span>
@@ -1011,6 +1034,9 @@
         </article>
 
         <article class="portfolio-card" data-reveal>
+          <div class="portfolio-card-img">
+            <img src="images/portfolio/jasmine.jpg" alt="Pırlanta Atolyesi Jasmine sitesi anasayfa görünümü" loading="lazy" width="800" height="500">
+          </div>
           <div class="portfolio-card-meta">
             <span class="portfolio-category">E-Ticaret · Mücevher</span>
             <span class="portfolio-admin-badge">⚙ Yönetim Paneli Dahil</span>
@@ -1021,6 +1047,9 @@
         </article>
 
         <article class="portfolio-card" data-reveal>
+          <div class="portfolio-card-img">
+            <img src="images/portfolio/zeytinliman.jpg" alt="Zeytinliman sitesi anasayfa görünümü" loading="lazy" width="800" height="500">
+          </div>
           <div class="portfolio-card-meta">
             <span class="portfolio-category">E-Ticaret · Gıda</span>
             <span class="portfolio-admin-badge">⚙ Yönetim Paneli Dahil</span>
@@ -1031,6 +1060,9 @@
         </article>
 
         <article class="portfolio-card" data-reveal>
+          <div class="portfolio-card-img">
+            <img src="images/portfolio/tgc-store.jpg" alt="TGC Store sitesi anasayfa görünümü" loading="lazy" width="800" height="500">
+          </div>
           <div class="portfolio-card-meta">
             <span class="portfolio-category">E-Ticaret · Moda</span>
             <span class="portfolio-admin-badge">⚙ Yönetim Paneli Dahil</span>
@@ -1041,6 +1073,9 @@
         </article>
 
         <article class="portfolio-card" data-reveal>
+          <div class="portfolio-card-img">
+            <img src="images/portfolio/bt-wedding.jpg" alt="BT Wedding & Event sitesi anasayfa görünümü" loading="lazy" width="800" height="500">
+          </div>
           <div class="portfolio-card-meta">
             <span class="portfolio-category">Rezervasyon · Organizasyon</span>
             <span class="portfolio-admin-badge">⚙ Yönetim Paneli Dahil</span>
